@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" modified="2026-07-02T00:00:00.000Z" agent="Claude" version="24.7.17" type="device">
+  <diagram name="AWS EC2 Monitoring Architecture" id="ec2-monitoring-arch">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="AWS EC2 Monitoring Architecture using Amazon CloudWatch and Amazon SNS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="60" y="20" width="880" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- AWS Cloud boundary group -->
+        <mxCell id="awsCloud" value="AWS Cloud" style="sketch=0;points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[0,1],[0.25,1],[0.5,1],[0.75,1],[1,1],[0,0.25],[0,0.5],[0,0.75],[1,0.25],[1,0.5],[1,0.75]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=14;fontStyle=0;container=0;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="220" width="360" height="1100" as="geometry" />
+        </mxCell>
+
+        <!-- IAM Role -->
+        <mxCell id="iamRole" value="IAM Role&#10;CloudWatchAgentServerPolicy" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#DD344C;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.role;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1180" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- EC2 Instance -->
+        <mxCell id="ec2Instance" value="Amazon EC2&#10;(Ubuntu Linux)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1180" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- CloudWatch Agent (on EC2) -->
+        <mxCell id="cwAgent" value="CloudWatch Agent&#10;(Collects CPU &amp; Memory)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.systems_manager;" vertex="1" parent="1">
+          <mxGeometry x="370" y="1000" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Amazon CloudWatch -->
+        <mxCell id="cloudwatch" value="Amazon CloudWatch&#10;(Dashboard &amp; Metrics)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch_2;" vertex="1" parent="1">
+          <mxGeometry x="370" y="820" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- CloudWatch Alarm -->
+        <mxCell id="cwAlarm" value="CloudWatch Alarm&#10;(CPU &gt; 50%)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch_alarm;" vertex="1" parent="1">
+          <mxGeometry x="370" y="640" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Amazon SNS -->
+        <mxCell id="sns" value="Amazon SNS Topic&#10;(ALARM State Trigger)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.simple_notification_service;" vertex="1" parent="1">
+          <mxGeometry x="370" y="460" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Administrator (outside AWS Cloud) -->
+        <mxCell id="admin" value="Administrator&#10;(Laptop / Email Client)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3E;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.user;" vertex="1" parent="1">
+          <mxGeometry x="370" y="280" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows -->
+
+        <!-- EC2 -> IAM Role (association, dashed, no label needed but show trust relationship) -->
+        <mxCell id="edgeIam" value="Assumes Role" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontColor=#232F3E;strokeColor=#545B64;dashed=1;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ec2Instance" target="iamRole">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- EC2 -> CloudWatch Agent -->
+        <mxCell id="edge1" value="Collects CPU &amp; Memory Metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontColor=#232F3E;strokeColor=#232F3E;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="ec2Instance" target="cwAgent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CloudWatch Agent -> CloudWatch -->
+        <mxCell id="edge2" value="Publishes Custom Metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontColor=#232F3E;strokeColor=#232F3E;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cwAgent" target="cloudwatch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CloudWatch -> CloudWatch Alarm -->
+        <mxCell id="edge3" value="Evaluates CPU Threshold (&gt;50%)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontColor=#232F3E;strokeColor=#232F3E;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cloudwatch" target="cwAlarm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CloudWatch Alarm -> SNS -->
+        <mxCell id="edge4" value="Triggers Notification" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontColor=#232F3E;strokeColor=#232F3E;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cwAlarm" target="sns">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- SNS -> Administrator -->
+        <mxCell id="edge5" value="Email Alert" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontColor=#232F3E;strokeColor=#232F3E;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="sns" target="admin">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
