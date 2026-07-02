@@ -167,6 +167,18 @@ pkill yes
 
 ---
 
+### NGINX
+
+![NGINX](screenshots/10-nginx-document-root.png)
+
+---
+
+### LIVE WEBPAGE
+
+![WEBPAGE](screenshots/09-website-live.png)
+
+---
+
 ### CloudWatch Dashboard
 
 ![Dashboard](screenshots/Cloud-Watch-Dashboard.png)
