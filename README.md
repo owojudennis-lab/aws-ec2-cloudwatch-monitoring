@@ -169,7 +169,7 @@ pkill yes
 
 ### CloudWatch Dashboard
 
-![Dashboard](screenshots/04-instance-running.png)
+![Dashboard](screenshots/Cloud-Watch-Dashboard.png)
 
 ---
 
