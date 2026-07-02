@@ -10,7 +10,7 @@ The project emphasizes secure authentication using IAM Roles instead of long-ter
 ## Architecture
 
 <p align="center">
-  <img src="architecture/architecture-diagram.png" alt="AWS EC2 Monitoring Architecture" width="800">
+  <img src="Architecture/aws-ec2-monitoring-architecture.drawio.png" alt="AWS EC2 Monitoring Architecture" width="800">
 </p>
 
 ## AWS Services
