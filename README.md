@@ -9,25 +9,9 @@ The project emphasizes secure authentication using IAM Roles instead of long-ter
 
 ## Architecture
 
-Internet
-     │
-     ▼
-Security Group
-     │
-     ▼
-EC2 (Ubuntu + Nginx)
-     │
-IAM Role
-     │
-CloudWatch Agent
-     │
-CloudWatch
-     │
-CloudWatch Alarm
-     │
-Amazon SNS
-     │
-Email Notification
+<p align="center">
+  <img src="architecture/architecture-diagram.png" alt="AWS EC2 Monitoring Architecture" width="800">
+</p>
 
 ## AWS Services
 
