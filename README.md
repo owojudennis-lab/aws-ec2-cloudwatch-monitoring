@@ -89,7 +89,21 @@ Assign the IAM Role to the EC2 instance.
 
 ---
 
-### 3. Install the CloudWatch Agent
+### 3. Install and Configure Nginx
+
+To simulate a real production workload rather than an idle instance, Nginx was installed to serve a live website — giving the CloudWatch Agent real traffic-driven metrics to monitor.
+
+```bash
+sudo apt update -y
+sudo apt install nginx -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```
+
+Verify the site is live by visiting the instance's public IP in a browser.
+---
+
+### 4. Install the CloudWatch Agent
 
 Update packages and install the agent.
 
@@ -103,7 +117,7 @@ Start the CloudWatch Agent.
 
 ---
 
-### 4. Create a CloudWatch Dashboard
+### 5. Create a CloudWatch Dashboard
 
 Add widgets to monitor:
 
@@ -112,7 +126,7 @@ Add widgets to monitor:
 
 ---
 
-### 5. Create a CloudWatch Alarm
+### 6. Create a CloudWatch Alarm
 
 Configuration:
 
@@ -122,7 +136,7 @@ Configuration:
 
 ---
 
-### 6. Configure Amazon SNS
+### 7. Configure Amazon SNS
 
 - Create an SNS Topic
 - Subscribe using an email address
@@ -132,7 +146,7 @@ Associate the SNS Topic with the CloudWatch Alarm.
 
 ---
 
-### 7. Test the Alarm
+### 8. Test the Alarm
 
 Generate CPU load:
 
