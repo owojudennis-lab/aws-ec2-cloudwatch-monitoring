@@ -187,13 +187,13 @@ pkill yes
 
 ### SNS Email Notification
 
-![SNS](screenshots/Email subscription showing Confirmed.png)
+![SNS](screenshots/SNS-email-alarm.png)
 
 ---
 
 ### CPU Utilization Test
 
-![CPU](screenshots/Terminal for CPU Utilization.png)
+![CPU](screenshots/Terminal-for-CPU-Utilization.png)
 
 ---
 
